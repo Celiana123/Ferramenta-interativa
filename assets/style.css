@@ -1,7 +1,7 @@
 /*Programação do FLASHCARD somente em html e css*/
 :root {
-    --text-color: #0e75f1;
-    --card-front-color: #ffffff;
+    --text-color: #5b5c5e;
+    --card-front-color: #d493cc;
     --card-back-color: #8f8f8f;
     }
 
@@ -75,7 +75,7 @@ body {
 
 footer {
     background-color: black;
-    color: white;
+    color: rgb(168, 163, 163);
     bottom:0;
     position:fixed;
     width:100%;
