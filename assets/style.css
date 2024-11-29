@@ -1,14 +1,15 @@
-/*Programação do FLASHCARD somente em html e css*/
+
 :root {
-    --text-color: #f7faff;
-    --card-front-color: #52104a;
-    --card-back-color: #ffffff;
+    --text-color: hsl(0, 0%, 100%);
+    --card-front-color: hwb(178 38% 35%);
+    --card-back-color: hsl(186, 75%, 32%);
     }
 
 body {
-    background:url('img/bg-desktop.webp');
+    background:hsl(213, 63%, 32%);
     font-family: Bai Jamjuree;
 }
+
 
 #container {
     display:flex ;
@@ -17,11 +18,11 @@ body {
     padding: 4rem; /*centralizar o conteúdo do cartão*/
     gap: 3rem;
 }
-/**/
+
 .cartao {
     margin: 2rem 2rem;
-    background-color: #610064;
-    height: 20rem;
+    background-color: var(--card-back-color);
+    height: 18rem;
     flex-grow: 1;
     flex-basis: calc(33% - 6rem);
 }
@@ -49,33 +50,43 @@ body {
 .cartao__conteudo__pergunta p {
     color: var(--text-color);
     font-weight: 500;
-    padding-top: 4rem;
+    padding-top: 5rem;
 }
 
 .cartao__conteudo__resposta p {
     color: var(--card-back-color);
     font-weight: 700;
-    padding: 0.5rem;
+    padding-top: 5rem;
 }
 
-.cartao:hover .cartao__conteudo {
+.cartao.active .cartao__conteudo {
     transform: rotateY(180deg);
 }
 
 .cartao__conteudo__pergunta,
 .cartao__conteudo__resposta {
     backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .cartao__conteudo__resposta {
     transform: rotateY(180deg);
+    border: 4px solid var(--card-back-color);
 }
 
-
+.cartao__conteudo p {
+    margin-top: 1rem;
+    padding: 2rem;
+    margin-top: 5rem;
+    font-size: 1.4vw;
+}
 
 footer {
-    background-color: rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
+    background-color: black;
+    color: white;
     bottom:0;
     position:fixed;
     width:100%;
@@ -86,4 +97,23 @@ footer p{
     text-align: center;
     font-size: 0.6rem;
     margin-top: 0,5rem;
+}
+
+@media (max-width: 560px) {
+
+    body {
+        background: url('img/bd-mobile.webp');
+    }
+
+    .cartao {
+        flex: 1 0 calc(100% - 1rem);
+    }
+    
+    .cartao__conteudo h3 {
+        font-size: 3vw;
+    }
+    
+    .cartao__conteudo p {
+        font-size: 3.8vw;
+    }
 }
